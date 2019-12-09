@@ -1,5 +1,5 @@
 <?php
-
+  //revisar lo de autenticador
   //include_once('funciones/autenticador.php');
 
   $email='';
