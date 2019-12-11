@@ -1,0 +1,244 @@
+body{
+  background-color: rgba(225,225,225,0.4) !important;
+}
+
+main{
+    margin-top:108px;
+}
+
+.encabezado{
+  position: fixed;
+  top: 0;
+  background-color: white;
+  width: 100%;
+  z-index: 10;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+}
+.encabezado img{
+  width: 100px;
+}
+
+#dropdown-login{
+  margin-right: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#menu ul{
+    list-style-type: none;
+    text-align: right;
+    margin-top: 35px;
+    margin-right: 5px;
+ }
+
+.btn{
+   margin-right: 0px;
+ }
+
+.menuPrincipal{
+    display: inline;
+    text-align: center;
+    margin: 0 35px 0 0;
+ }
+
+ #menu li a {
+    color: #3B3B3B;
+    text-decoration: none;
+     justify-content:space-around;
+}
+
+#menu li a:hover{
+
+    color: #a5a6a7;
+}
+
+/*
+.menuPrincipal:hover {
+    text-decoration:underline;
+}
+*/
+
+#logo {
+    float: left;
+    margin: 5PX 10px;
+}
+
+
+/*estilo del Body*/
+
+/*.carousel-inner img {
+
+   width: 100%;
+   max-height: 500px;
+}
+
+.carousel-inner{
+height: 500px;
+
+}
+*/
+
+.imagenPrincipal{
+  width: 100%;
+}
+.imagenPrincipal img{
+  width: 100%;
+}
+
+
+
+  #titulo1 {
+    margin: 1rem auto;
+    width:100%;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
+
+.contenedor {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.contenedor img{
+  width: 300px;
+
+}
+.elemento {
+    margin: 30px;
+}
+
+.nombreArticulo{
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.botoncomprar {
+  width: 150px;
+  text-align: center;
+  margin: auto; display: block;
+  padding: 12px;
+  color: #616E6E;
+  background-color:#BFDCDA;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.botoncomprar:hover {
+    cursor:pointer;
+    opacity: 0.8;
+    text-decoration: none;
+    color: #3B3B3B;
+}
+
+.BotonElim{
+  color: #616E6E;
+  text-align: left;
+  margin: auto; display: block;
+}
+
+.BotonElim:hover {
+  cursor:pointer;
+  opacity: 0.8;
+  text-decoration: none;
+  color: rgb(27, 27, 27);
+}
+
+.BotonModif{
+  color: #616E6E;
+  text-align: left;
+  margin: auto; display: block;
+}
+
+.BotonModif:hover{
+  cursor:pointer;
+  opacity: 0.8;
+  text-decoration: none;
+  color: rgb(27, 27, 27);
+}
+
+.botonAgregar{
+  color: #616E6E;
+  text-align: right;
+  margin: auto; display: block;
+  font-family: 'Raleway', sans-serif;
+}
+
+.botonAgregar:hover{
+  cursor:pointer;
+  opacity: 0.8;
+  text-decoration: none;
+  color: rgb(27, 27, 27);
+}
+
+.nombreUsuario{
+  font-size: 22px;
+  font-weight: bold;
+
+}
+#dropdown-ul{
+  margin:0px!important;
+  padding: 5px;
+}
+#dropdown-ul li{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.botonLogout{
+  background-color: white;
+  border: none;
+}
+.botonIconoUser{
+  padding-top: 0;
+}
+
+/* estilos de footer */
+
+footer {
+    color: white;
+    background-color: rgb(34, 33, 33);;
+    font-family: 'Raleway', sans-serif;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 20px;
+}
+
+
+footer .centrado p{
+  display: flex;
+  align-items: center;
+}
+
+#icons {
+    color: rgb(120, 216, 183);
+    margin-right: 10px;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.redes_icons {
+    margin-left: 10px;
+}
+
+footer .container ul{
+  padding-left: 0px;
+}
+
+.divLogo{
+  width: 150px;
+  margin-bottom: 20px;
+}

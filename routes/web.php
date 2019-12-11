@@ -12,13 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/index');
 });
 
-Route::get('/registro', 'Auth\RegisterController@showRegistrationForm');
+Route::get('/index', 'HomeController@index');
+
+Route::get('/faq', function() {
+    return view('/faq');
+});
+
+Route::get('/contacto', function() {
+    return view('/contacto');
+});
+
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+

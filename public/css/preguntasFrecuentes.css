@@ -1,0 +1,58 @@
+/* PREGUNTAS FRECUENTES */
+/* Acordeón */
+body {
+  background: rgba(255, 255, 255, 0.5);
+  color: #616E6E;
+  font-size: 1em;
+  font-family: sans-serif;
+}
+
+h1{
+  text-align: center;
+  padding-top: 40px;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+
+.accordion {
+  width: 80%;
+  margin: 50px auto;
+  box-shadow: 0 0 1px rgba(0,0,0,0.1);
+}
+
+.accordion .card,
+.accordion .card:last-child .card-header {
+  border: none;
+}
+
+.accordion .card-header {
+  border-bottom-color: #EDEFF0;
+  background: transparent;
+}
+
+.accordion .fa-stack {
+  font-size: 1.3em;
+}
+
+.accordion .btn {
+  background-color: #BFDCDA;
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  width: 100%;
+  font-weight: bold;
+  padding: 0;
+}
+
+.accordion .btn-link:hover,
+.accordion .btn-link:focus {
+  text-decoration: none;
+  color: #616E6E;
+}
+
+.accordion li + li {
+  margin-top: 10px;
+}
