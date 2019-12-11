@@ -22,11 +22,11 @@
                             elaboramos.</p>
                         <h3>¿Qué tamaño tienen las tortas?</h3>
                         <p>Ofrecemos las tortas en tres tamaños:</P>
-                        <ul>
+                        <p><ul>
                             <li>Chico es para 4 o 5 porciones y mide 13 cm de diámetro</li>
                             <li>Mediano es para 10 a 12 porciones y mide 21 cm de diámetro</li>
                             <li>Grande es para 20 porciones y mide 26 cm de diámetro</li>
-                        </ul>
+                        </ul></p>
                         <p>Todas tienen 8cm de altura.</P><br>
                         <p>NOTA: Las porciones por tamaño son sólo sugeridas y las medidas son aproximadas ya que al ser
                             elaborados artesanalmente pueden variar un poco entre uno y otro.</p>
@@ -118,3 +118,4 @@
         </div>
         </div>
     </main>
+@endsection
