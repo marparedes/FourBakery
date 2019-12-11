@@ -29,8 +29,10 @@ Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 
+Route::get('/productos', 'ProductoController@mostrarProductos');
+
+Route::get('/productos/{id}', 'ProductoController@buscarPorId');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
-
-
