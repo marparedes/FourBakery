@@ -25,7 +25,7 @@ Route::get('/contacto', function() {
     return view('/contacto');
 });
 
-Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
+Route::get('/registro', 'Auth\RegisterController@showRegistrationForm');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm');
 

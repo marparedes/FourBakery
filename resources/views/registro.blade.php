@@ -147,17 +147,18 @@
                  echo $errorConfirmarPass;
                  echo $terminos;
                  ?>
-              <form id="formulario" method='post' action="formularioRegistro.php" enctype="multipart/form-data">
+              <form id="formulario" method='post' action="registro" enctype="multipart/form-data">
                 <p id="titulo-form"><b>Ingresa tus Datos</b></p>
                 <div class= "user_info">
                 <div class="form-group" >
-                  <label for="nombre">Nombre</label>
-                  <input type="text" class="form-control" name="nombre" value='<?php echo $nombre; ?>'>
+                  <label for="name">Nombre</label>
+                  <input type="text" class="form-control" name="name" value='<?php echo $nombre; ?>'>
                 </div>
-                <div class="form-group">
+                 <!-- <div class="form-group">
                   <label for="tel">Telefono</label>
                   <input type="tel" class="form-control" name="telefono" value='<?php echo $telefono; ?>'>
                 </div>
+                -->
                 <div class= form-group>
                   <label for="email">Email</label>
                   <input type="email" class="form-control" name="email" id="exampleInputEmail1"
@@ -167,21 +168,24 @@
                   <label for="password">Contraseña</label>
                   <input type="password" class="form-control" name="password" id="exampleInputPassword1">
                 </div>
-                <div class="form-group">
+               <!-- <div class="form-group">
                   <label for="confirm-password">Confirmar Password</label>
-                  <input type="password" class="form-control" name="confirmarPass" id="confirm-password" >
+                  <input type="password" class="form-control" name="password_confirmation" id="confirm-password">
                 </div>
+              -->
+               <!--
                 <div class="form-group">
                   <label for="avatar">Subir avatar</label>
                   <input type="file" name="avatar" id="avatar">
                 </div>
+                -->
                 <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="terminos" name="terminos">
                   <label class="form-check-label" for="terminos">Acepto terminos y condiciones</label>
                 </div>
-
+                
                 <div class="boton">
-                  <button type="submit" class="btn btn_login" >Registrarse</button>
+                  <button type="submit" class="btn btn_login">Registrarse</button>
                 </div>
               </div>
               </form>
