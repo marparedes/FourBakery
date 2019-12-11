@@ -1,6 +1,6 @@
 @extends('layouts.pasteleria')
 
-@section('contentido')
+@section('contenido')
 <main>
         <h1>Preguntas frecuentes</h1>
 

@@ -35,11 +35,15 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="/css/font-awesome.css">
-    <link rel="stylesheet" href="/css/estilo.css">
-    <link rel="stylesheet" href="/css/preguntasFrecuentes.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link href="{{ asset('css/estilo.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/preguntasFrecuentes.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/carrito.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/contacto.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/login_registro.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/miPerfil.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/vista-del-producto.css') }}" rel="stylesheet">
+
 
 </head>
 <body>
