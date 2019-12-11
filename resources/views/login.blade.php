@@ -73,8 +73,8 @@
     <link href="https://fonts.googleapis.com/css?family=Livvic|Nunito|Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script&amp;display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/Login_Registrarse.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/login_registro.css">
+    <link rel="stylesheet" href="/css/main.css">
 
     <title></title>
   </head>
@@ -82,7 +82,7 @@
 
   <body>
 
-    <?php //require("encabezado.php"); ?>
+    @include('encabezado')
 
     <main>
       <div class="container">
@@ -99,7 +99,7 @@
                 echo $errorEmail;
                 echo '<br>' . $errorPassword;
             ?>
-            <form id="formulario" method="post" action='formularioLogin.php'>
+            <form id="formulario" method="post" action=''>
                 <p id="titulo-form"><b>Ingresa tus Datos</b></p>
                 <div class= "user_info">
                   <div class="form-group">
@@ -137,7 +137,7 @@
     </main>
 
 
-    <?php// require("pieDePagina.php"); ?>
+    @include('footer')
 
 
 

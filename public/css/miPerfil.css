@@ -1,0 +1,74 @@
+*{
+  box-sizing: border-box;
+}
+
+.btn_login{
+  background-color: #91DFBF;
+  color: white;
+  margin-top: 10px;
+
+}
+
+main{
+  margin-top: 108px;
+}
+
+.contenedor{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boton{
+  text-align: center;
+}
+
+.tituloPrincipal {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#formulario{
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+}
+
+#formulario .form-group label{
+  color: grey;
+}
+
+#pass{
+  color: grey;
+}
+
+#imagenPerfil{
+float: left;
+}
+
+h1 {
+  color: #595252
+}
+
+h3 {
+  color:  #ff6045;
+  font-family: 'Dancing Script', cursive;
+}
+
+form {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.user_info {
+  padding: 15px;
+}
+
+#titulo-form {
+  color:#91DFBF;
+  text-align: left;
+  margin-left: 10px;;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
