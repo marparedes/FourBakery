@@ -1,4 +1,4 @@
-<?php $productos = [];?>
+<?php /*$productos = [];*/?>
 
 @extends('layouts.pasteleria')
 
