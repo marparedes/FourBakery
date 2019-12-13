@@ -20,7 +20,7 @@
             <a class="nav-link" href="{{url("index")}}">INICIO</a>
           </li>
           <li class="nav-item menuPrincipal">
-            <a class="nav-link" href="{{url("index")}}#productos">PRODUCTOS</a>
+            <a class="nav-link" href="{{url("productos")}}">PRODUCTOS</a>
           </li>
           <li class="nav-item menuPrincipal">
             <a class="nav-link" href="{{url("faq")}}">FAQ</a>

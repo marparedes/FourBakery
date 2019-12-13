@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Livvic|Nunito|Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -51,15 +52,15 @@
 </head>
 <body>
     <div id="plantilla">
-        <header>
-          @include('encabezado')
-        </header>
-        <main>
-            @yield('contenido')
-        </main>
-        <footer>
-          @include('footer')
-        </footer>
+
+        @include('encabezado')
+
+
+        @yield('contenido')
+
+
+        @include('footer')
+
     </div>
 </body>
 </html>

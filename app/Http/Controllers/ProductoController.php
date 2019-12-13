@@ -18,4 +18,9 @@ class ProductoController extends Controller
       $producto= Producto::find($id);
       return view('producto', compact('producto'));
     }
+
+    public function listadoIndex(){
+      $productos = Producto::where('id','<=','13')->get();
+      return view('index', compact('productos'));
+    }
 }
