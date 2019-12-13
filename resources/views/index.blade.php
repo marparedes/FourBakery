@@ -1,4 +1,4 @@
-<?php $productos = [];?>
+<?php// $productos = [];?>
 
 @extends('layouts.pasteleria')
 
@@ -25,7 +25,7 @@
             </figure>
             <a class="BotonElim" href="index.php?producto=<?php echo $producto['id']?>&eliminar=true">Eliminar</a>
             <a class="BotonModif" href="modificarProducto.php?producto=<?php echo $producto['id']?>">Modificar</a>
-            <a class="botoncomprar" href="vistaDelProducto.php?producto=<?php echo $producto['id']?>">Comprar</a>
+            <a class="botoncomprar" href="productos/<?php echo $producto['id']?>">Comprar</a>
           </article>
         <?php } ?>
       </div>

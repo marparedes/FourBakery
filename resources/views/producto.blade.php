@@ -3,7 +3,7 @@
 @section('contenido')
     <main>
       <div class="nombreDeProducto">
-      <h2><?php echo $producto['nombre']?></h2>
+      <h2><?php echo $producto['nombre'];?></h2>
       </div>
       <div class="contenedor1">
 
@@ -18,7 +18,7 @@
               <a class="botoncomprar" href="vistaDelProducto.php?producto=<?=$producto['id']?>&agregar=true"><i class="fas fa-cart-arrow-down"></i> Agregar al carrito</a>
 
           </div>
-        </div>
+      </div>
 
     </main>
 @endsection
