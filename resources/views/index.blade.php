@@ -1,3 +1,5 @@
+<?php $productos = [];?>
+
 @extends('layouts.pasteleria')
 
 @section('contenido')

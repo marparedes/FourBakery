@@ -31,13 +31,20 @@
           <li class='nav-item menuPrincipal usuario'>
             <button class="btn" type="button" name="button" data-toggle="dropdown">
               <span class='fa fa-user-circle' width="6" height="6"></span>
+              @if(Auth::check())
+              <p>{{Auth::user()->name}}</p>
+              @endif
             </button>
-            <ul class="dropdown-menu" id='dropdown-ul'>
-              <li id="dropdown-login"><a href="{{url("login")}}">Inicia Sesión</a></li>
-              <li id="dropdown-login"><a href="{{url("register")}}">Registrate</a></li>
-              <li id="dropdown-login"><a href="{{url("index")}}">Cerrar Sesión</a></li>
+            <ul class="" id=''>
+              <li id=""><a href="{{url("login")}}">Inicia Sesión</a></li>
+              <li id=""><a href="{{url("registro")}}">Registrate</a></li>
+              <li id=""><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </li>
             </ul>
-
           </li>
         </ul>
       </div>

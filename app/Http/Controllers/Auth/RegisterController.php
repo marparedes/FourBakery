@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/index';
 
     /**
      * Create a new controller instance.
@@ -48,12 +49,25 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+
+        $reglas = [
+            'name' => ['required', 'string', 'max:255', 'min:3'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-           // 'avatar' => ['string', 'max:200'],
-        ]);
+            //'avatar' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
+        ];
+
+        $mensajes = [
+            'required' => "Escribe tu nombre",
+            'string' => "Formato incorrecto",
+            'min' => "Este campo :attribute tiene un maximo de :min",
+           // 'avatar' => ""
+            //'unique:users  =>  
+        ];
+
+
+        return Validator::make($data, $reglas, $mensajes);
+
     }
 
     /**
@@ -77,4 +91,16 @@ class RegisterController extends Controller
     public function showRegistrationForm(){
       return view("registro");
     }
+
+    public function agregarUsuario(Request $form){
+        
+        $usuarioNuevo = new User();
+        $usuarioNuevo->name = $form['name'];
+        $usuarioNuevo->email = $form['email'];
+        $usuarioNuevo->password = Hash::make($form['password']);
+
+        $usuarioNuevo->save();
+
+        return view("index");
+      }
 }

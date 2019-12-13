@@ -1,6 +1,7 @@
 <?php
 
   //include_once('funciones/autenticador.php');
+  /*
   $email='';
   $errorEmail='';
   $errorPassword='';
@@ -56,7 +57,7 @@
     }
 
   }
-
+*/
  ?>
 
 
@@ -96,20 +97,32 @@
               <h3>¡Mi cuenta!</h3>
             </div>
             <?php
-                echo $errorEmail;
-                echo '<br>' . $errorPassword;
+                //echo $errorEmail;
+               // echo '<br>' . $errorPassword;
             ?>
-            <form id="formulario" method="post" action=''>
+            <form id="formulario" method="post" action='{{ route('login') }}'>
+              @csrf
                 <p id="titulo-form"><b>Ingresa tus Datos</b></p>
                 <div class= "user_info">
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" name='email'
-                    value=<?php echo $email; ?>>
+                    <input type="email" class="form-control @error("email") is-invalid @enderror" name='email'
+                    value=<?php //echo $email; ?>>
+                    @error('email')
+                    <span class="invalid-feedback" role='alert'> 
+                      <strong>{{$message}}</strong>
+                    </span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="password">Contraseña</label>
-                    <input type="password" class="form-control"  name='password'>
+                    <input type="password" class="form-control @error("password") is-invalid @enderror" name='password'>
+                    @error('password')
+                    <span class="invalid-feedback" role='alert'> 
+                      <strong>{{$message}}</strong>
+                    </span>
+                    @enderror
+                    
                     <small><a href="#" id="pass">¿Olvidaste tu contraseña?</a> </small>
                   </div>
                   <div class="form-group form-check">

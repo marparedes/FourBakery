@@ -25,11 +25,13 @@ Route::get('/contacto', function() {
     return view('/contacto');
 });
 
-Route::get('/index','ProductoController@listadoIndex');
+Route::get('/blablsa','ProductoController@listadoIndex');
 
 Route::get('/registro', 'Auth\RegisterController@showRegistrationForm');
 
-Route::get('/login', 'Auth\LoginController@showLoginForm');
+//Route::post('/registro', 'Auth\RegisterController@agregarUsuario');
+
+//Route::get('/login', 'Auth\LoginController@showLoginForm');
 
 Route::get('/productos', 'ProductoController@mostrarProductos');
 

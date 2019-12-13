@@ -2,7 +2,7 @@
   //revisar lo de autenticador
   //include_once('funciones/autenticador.php');
 
-  $email='';
+ /* $email='';
   $telefono='';
   $nombre='';
   $errorEmail='';
@@ -104,112 +104,137 @@
       header('');
     }
 }
+*/
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <script type="text/javascript" src="/js/validacionRegistro.js"></script>
-    <meta name="viewport" content="width-device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="/js/validacionRegistro.js"></script>
+  <meta name="viewport" content="width-device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Livvic|Nunito|Raleway&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="/css/login_registro.css"> <?php //revisar ruta ?>
-    <title></title>
-  </head>
-  <body>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Livvic|Nunito|Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/login_registro.css">
+  <title></title>
+</head>
 
-    @include('encabezado')
+<body>
 
-      <main>
-        <div class="container">
-          <div class="row contenedor">
-            <div class="col-lg-3">
+  @include('encabezado')
 
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="tituloPrincipal">
-                  <h1>Registrate</h1>
-                  <h3>¡Únete para hacer tus pedidos!</h3>
-                </div>
+  <main>
+    <div class="container">
+      <div class="row contenedor">
+        <div class="col-lg-3">
 
-                <?php
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="tituloPrincipal">
+            <h1>Registrate</h1>
+            <h3>¡Únete para hacer tus pedidos!</h3>
+          </div>
+
+          <?php
                 //var_dump($_POST);
-                 echo $errorTel;
-                 echo $errorEmail;
-                 echo $errorPassword;
-                 echo $errorConfirmarPass;
-                 echo $terminos;
+                // echo $errorTel;
+                // echo $errorEmail;
+                // echo $errorPassword;
+                // echo $errorConfirmarPass;
+                 // echo $terminos;
                  ?>
-              <form id="formulario" method='post' action="registro" enctype="multipart/form-data">
-                <p id="titulo-form"><b>Ingresa tus Datos</b></p>
-                <div class= "user_info">
-                <div class="form-group" >
-                  <label for="name">Nombre</label>
-                  <input type="text" class="form-control" name="name" value='<?php echo $nombre; ?>'>
-                </div>
-                 <!-- <div class="form-group">
+          <form id="formulario" method='POST' action="{{ route('register') }}" enctype="multipart/form-data">
+            @csrf
+            <p id="titulo-form"><b>Ingresa tus Datos</b></p>
+            <div class="user_info">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input id="name" type="text" class="form-control @error("name") is-invalid @enderror" name="name" value='{{ old('name') }}' required focus>
+                @error('name')
+                <span class="invalid-feedback" role='alert'> 
+                  <strong>{{$message}}</strong>
+                </span>
+                @enderror
+              </div>
+              <!-- <div class="form-group">
                   <label for="tel">Telefono</label>
-                  <input type="tel" class="form-control" name="telefono" value='<?php echo $telefono; ?>'>
+                  <input type="tel" class="form-control" name="telefono" value='<?php// echo $telefono; ?>'>
                 </div>
                 -->
-                <div class= form-group>
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                  aria-describedby="emailHelp" value='<?php echo $email; ?>'>
+              <div class=form-group>
+                <label for="email">Email</label>
+                <input id="email" type="email" class="form-control @error("email") is-invalid @enderror" name="email" aria-describedby="emailHelp"
+                  value='{{ old('email') }}' required>
+                  @error('email')
+                  <span class="invalid-feedback" role='alert'> 
+                    <strong>{{$message}}</strong>
+                  </span>
+                  @enderror
+              </div>
+              <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control @error("password") is-invalid @enderror" name="password" id="password" required>
+                @error('password')
+                <span class="invalid-feedback" role='alert'> 
+                  <strong>{{$message}}</strong>
+                </span>
+                @enderror
+              </div>
+             <div class="form-group">
+                  <label for="password-confirm">Confirmar Password</label>
+                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 </div>
-                <div class="form-group">
-                  <label for="password">Contraseña</label>
-                  <input type="password" class="form-control" name="password" id="exampleInputPassword1">
-                </div>
-               <!-- <div class="form-group">
-                  <label for="confirm-password">Confirmar Password</label>
-                  <input type="password" class="form-control" name="password_confirmation" id="confirm-password">
-                </div>
-              -->
-               <!--
+              
                 <div class="form-group">
                   <label for="avatar">Subir avatar</label>
                   <input type="file" name="avatar" id="avatar">
                 </div>
-                -->
+                
+              
                 <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="terminos" name="terminos">
                   <label class="form-check-label" for="terminos">Acepto terminos y condiciones</label>
                 </div>
-                
-                <div class="boton">
-                  <button type="submit" class="btn btn_login">Registrarse</button>
-                </div>
+
+              <div class="boton">
+                <button type="submit" class="btn btn_login">Registrarse</button>
               </div>
-              </form>
             </div>
+          </form>
+        </div>
 
-            <div class="col-lg-3">
+        <div class="col-lg-3">
 
-            </div>
-
-
-          </div>
         </div>
 
 
-      </main>
+      </div>
+    </div>
 
 
-      @include('footer')
-
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-      </body>
+  </main>
 
 
-  </html>
+  @include('footer')
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+
+
+</html>
