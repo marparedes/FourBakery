@@ -18,7 +18,7 @@
                   <div class="precio">
                     <p>Precio: $ <?=$producto['precio']; ?></p>
                   </div>
-                  <a class="botoncomprar" href="vistaDelProducto.php?producto=<?php echo $producto['id']?>">Comprar</a>
+                  <a class="botoncomprar" href="productos/<?php echo $producto['id']?>">Comprar</a>
               </article>
               <?php } ?>
           </div>

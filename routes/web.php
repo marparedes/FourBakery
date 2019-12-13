@@ -25,6 +25,11 @@ Route::get('/contacto', function() {
     return view('/contacto');
 });
 
+
+Route::get('/perfil', function() {
+    return view('/perfil');
+});
+
 Route::get('/index','ProductoController@listadoIndex');
 
 Route::get('/registro', 'Auth\RegisterController@showRegistrationForm');
