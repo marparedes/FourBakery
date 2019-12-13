@@ -49,20 +49,23 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+    
 
         $reglas = [
             'name' => ['required', 'string', 'max:255', 'min:3'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            //'avatar' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048']
+            'avatar' => ['image', 'mimes:jpeg,png,gif,svg', 'max:2048']
         ];
-
+  
         $mensajes = [
             'required' => "Escribe tu nombre",
             'string' => "Formato incorrecto",
-            'min' => "Este campo :attribute tiene un maximo de :min",
-           // 'avatar' => ""
-            //'unique:users  =>  
+             'min' => "Este campo :attribute tiene un maximo de :min",
+             'mimes' => "Este formato no es valido"
+            //'avatar' => ""
+            //'unique:users' => "Este correo ya fue usado" 
+            
         ];
 
 
@@ -78,15 +81,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-           // 'avatar' => $data['avatar'],
-
+            'avatar' => $data['avatar'],
         ]);
     }
-
+    
 
     public function showRegistrationForm(){
       return view("registro");

@@ -35,16 +35,21 @@
               <p>{{Auth::user()->name}}</p>
               @endif
             </button>
-            <ul class="" id=''>
-              <li id=""><a href="{{url("login")}}">Inicia Sesión</a></li>
-              <li id=""><a href="{{url("registro")}}">Registrate</a></li>
-              <li id=""><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">Cerrar Sesión</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-                </form>
-              </li>
-            </ul>
+            @if (Auth::check()) {
+              <ul class="" id=''>
+                  <li id=""><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                    </form>
+                  </li>
+                </ul>
+            } @else 
+              <ul class="" id=''>
+                  <li id=""><a href="{{url("login")}}">Inicia Sesión</a></li>
+                  <li id=""><a href="{{url("registro")}}">Registrate</a></li>
+                </ul>
+            @endif
           </li>
         </ul>
       </div>
