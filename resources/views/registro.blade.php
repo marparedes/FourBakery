@@ -1,134 +1,6 @@
-<?php
-  //revisar lo de autenticador
-  //include_once('funciones/autenticador.php');
+@extends('layouts.pasteleria')
 
- /* $email='';
-  $telefono='';
-  $nombre='';
-  $errorEmail='';
-  $errorTel='';
-  $errorPassword='';
-  $errorConfirmarPass= '';
-  $terminos= '';
-
-  if($_POST){
-
-    $email= $_POST['email'];
-    $password= $_POST['password'];
-    $confirmar = $_POST['confirmar'];
-    $nombre= $_POST['nombre'];
-    $telefono= $_POST['telefono'];
-
-    $nombreArchivo='';
-
-
-      //validaciones
-
-    if($email == ''){
-      $errorEmail = 'Ingresa tu email';
-    } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-      $errorEmail = 'El email es inválido';
-    } //verificar que el email no esté registrado ya
-
-
-    if($telefono= ''){
-      $errorTel= 'Ingresa tu telefono';
-    }
-    if($password == ''){
-      $errorPassword = 'Ingresa tu password';
-    }
-    if($confirmar==''){
-      $errorConfirmarPass= 'Confirma la contraseña';
-    } else if($confirmar != $password){
-      $errorConfirmarPass = 'La contraseña no coincide';
-    }
-    if(!isset($_POST['terminos'])){
-      $terminos = 'Acepta los terminos y condiciones';
-    }
-
-    //si subio un archivo lo guardo en la carpeta avatars
-
-    if($_FILES){
-      if ($_FILES['avatar']['error'] === 0) {
-            //pido la extension del archivo
-            $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
-            if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
-                $errorAvatar = 'Archivo de formato invalido';
-            } else {
-                $nombreArchivo = $email . '.' . $ext;
-                //voy a mover el archivo del temporal a mi carpeta avatars
-                move_uploaded_file($_FILES['avatar']['tmp_name'], 'avatars/' . $nombreArchivo); //crear carpeta avatars
-            }
-        }
-    }
-
-
-
-    if(empty($errorTel) && empty($errorEmail) && empty($errorPassword) && empty($errorAvatar) && empty($errorConfirmarPass) && empty($terminos)){
-
-      //levanto mi archivo en formato json
-      $archivo = file_get_contents('json/usuarios.json');
-      //lo transformo a variables en php
-      $usuarios = json_decode($archivo, true);
-      $id = 0;
-      foreach ($usuarios as $usuario) {
-          if ($usuario['id'] > $id) {
-              $id = $usuario['id'];
-          }
-      }
-      $id++;
-
-      $hash= password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-      //guardo los datos del usuario
-      $usuario= [
-        'nombre' => $nombre,
-        'email' => $email,
-        'password' => $hash,
-        'telefono' => $telefono,
-        'avatar' => $nombreArchivo,
-        'admin' => false,
-        'id' => $id
-      ];
-
-      //agrego el usuario al array usuarios
-      $usuarios[] = $usuario;
-
-      $json= json_encode($usuarios);
-
-      file_put_contents('json/usuarios.json', $json);
-
-      //var_dump($usuario);
-      //var_dump($json);
-
-      header('');
-    }
-}
-*/
-
-?>
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <script type="text/javascript" src="/js/validacionRegistro.js"></script>
-  <meta name="viewport" content="width-device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Livvic|Nunito|Raleway&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Courgette|Dancing+Script&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="/css/login_registro.css">
-  <title></title>
-</head>
-
-<body>
-
-  @include('encabezado')
+@section('contenido')
 
   <main>
     <div class="container">
@@ -156,7 +28,7 @@
             <div class="user_info">
               <div class="form-group">
                 <label for="name">Nombre</label>
-                <input id="name" type="text" class="form-control @error("name") is-invalid @enderror" name="name" value='{{ old('name') }}' required focus>
+                <input id="name" type="text" class="form-control @error("name") is-invalid @enderror" name="name" value='{{ old('name') }}' focus>
                 @error('name')
                 <span class="invalid-feedback" role='alert'> 
                   <strong>{{$message}}</strong>
@@ -171,7 +43,7 @@
               <div class=form-group>
                 <label for="email">Email</label>
                 <input id="email" type="email" class="form-control @error("email") is-invalid @enderror" name="email" aria-describedby="emailHelp"
-                  value='{{ old('email') }}' required>
+                  value='{{ old('email') }}'>
                   @error('email')
                   <span class="invalid-feedback" role='alert'> 
                     <strong>{{$message}}</strong>
@@ -180,7 +52,7 @@
               </div>
               <div class="form-group">
                 <label for="password">Contraseña</label>
-                <input type="password" class="form-control @error("password") is-invalid @enderror" name="password" id="password" required>
+                <input type="password" class="form-control @error("password") is-invalid @enderror" name="password" id="password" >
                 @error('password')
                 <span class="invalid-feedback" role='alert'> 
                   <strong>{{$message}}</strong>
@@ -188,8 +60,8 @@
                 @enderror
               </div>
              <div class="form-group">
-                  <label for="password-confirm">Confirmar Password</label>
-                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                  <label for="password-confirm">Confirmar contraseña</label>
+                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                 </div>
               
                 <div class="form-group">
@@ -221,20 +93,4 @@
 
   </main>
 
-
-  @include('footer')
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-</body>
-
-
-</html>
+  @endsection

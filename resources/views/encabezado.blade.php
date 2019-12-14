@@ -36,7 +36,7 @@
               <p>{{Auth::user()->name}}</p>
               @endif
             </button>
-            @if (Auth::check()) {
+            @if (Auth::check()) 
               <ul class="dropdown-menu" id='dropdown-ul'>
                   <li id="dropdown-login"><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">Cerrar Sesión</a>
@@ -45,7 +45,7 @@
                     </form>
                   </li>
                 </ul>
-            } @else
+             @else
               <ul class="dropdown-menu" id='dropdown-ul'>
                   <li id="dropdown-login"><a href="{{url("login")}}">Inicia Sesión</a></li>
                   <li id="dropdown-login"><a href="{{url("registro")}}">Registrate</a></li>

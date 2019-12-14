@@ -59,13 +59,13 @@ class RegisterController extends Controller
         ];
   
         $mensajes = [
-            'required' => "Escribe tu nombre",
+            'required' => "Este campo es requerido",
             'string' => "Formato incorrecto",
              'min' => "Este campo :attribute tiene un maximo de :min",
-             'mimes' => "Este formato no es valido"
-            //'avatar' => ""
-            //'unique:users' => "Este correo ya fue usado" 
-            
+             'mimes' => "Este formato no es valido",
+             'unique' => "Este correo ya fue usado",
+             'confirmed' => "Las contraseñas no coninciden",
+             'email' => "Por favor escribe una dirección de correo valida"
         ];
 
 
