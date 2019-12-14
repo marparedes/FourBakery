@@ -81,12 +81,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+        $imagen = '';
+        if (isset($data['avatar'])) {
+            $imagen = $data['avatar']->store('public');
+            $imagen = basename($imagen);
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'avatar' => $data['avatar'],
+            'avatar' => $imagen,
         ]);
     }
     

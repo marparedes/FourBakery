@@ -32,6 +32,7 @@
             <button class="btn" type="button" name="button" data-toggle="dropdown">
               <span class='fa fa-user-circle' width="6" height="6"></span>
               @if(Auth::check())
+            <img src="/storage/{{Auth::user()->avatar}}">
               <p>{{Auth::user()->name}}</p>
               @endif
             </button>
