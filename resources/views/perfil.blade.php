@@ -3,6 +3,12 @@
 @section('contenido')
 
 <main>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
    <div class="container">
      <div class="row contenedor">
      @guest
