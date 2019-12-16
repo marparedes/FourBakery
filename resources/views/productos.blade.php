@@ -9,19 +9,23 @@
 
       <section>
           <div class="contenedor">
-              <?php foreach ($productos as $producto) { ?>
+            @foreach ($productos as $producto)
               <article class="elemento">
                   <figure>
-                      <img src="<?php echo $producto['img']?>"/>
-                      <figcaption class="nombreArticulo"><?php echo $producto['nombre']?></figcaption>
+                      <img src="{{ $producto->img }}"/>
+                      <figcaption class="nombreArticulo">{{ $producto->nombre }}</figcaption>
                   </figure>
                   <div class="precio">
                     <p>Precio: $ <?=$producto['precio']; ?></p>
                   </div>
-                  <a class="botoncomprar" href="productos/<?php echo $producto['id']?>">Comprar</a>
+                  <a class="botoncomprar" href="productos/{{ $producto->id }}">Comprar</a>
               </article>
-              <?php } ?>
+            @endforeach
           </div>
+          <div class="" style="padding-left: 80%; margin:20px;">
+            {{ $productos->links() }}
+          </div>
+
         </section>
     </main>
 

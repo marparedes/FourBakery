@@ -42,6 +42,12 @@ Route::get('/productos', 'ProductoController@mostrarProductos');
 
 Route::get('/productos/{id}', 'ProductoController@buscarPorId');
 
+Route::get('/modificarProducto/id={id}', 'ProductoController@productoId');
+
+Route::get('/agregarProducto', function(){
+  return view('agregarProducto');
+});
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
