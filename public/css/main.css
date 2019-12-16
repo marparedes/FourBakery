@@ -44,6 +44,16 @@ main{
     margin: 0 35px 0 0;
  }
 
+ .menuPrincipal.usuario.show{
+   position: relative;
+ }
+
+ .menuPrincipal.usuario.show .dropdown-menu.show{
+   position: absolute;
+   top:55px;
+   left: -65px;
+ }
+
  #menu li a {
     color: #3B3B3B;
     text-decoration: none;

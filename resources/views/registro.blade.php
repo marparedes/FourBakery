@@ -30,7 +30,7 @@
                 <label for="name">Nombre</label>
                 <input id="name" type="text" class="form-control @error("name") is-invalid @enderror" name="name" value='{{ old('name') }}' focus>
                 @error('name')
-                <span class="invalid-feedback" role='alert'> 
+                <span class="invalid-feedback" role='alert'>
                   <strong>{{$message}}</strong>
                 </span>
                 @enderror
@@ -45,7 +45,7 @@
                 <input id="email" type="email" class="form-control @error("email") is-invalid @enderror" name="email" aria-describedby="emailHelp"
                   value='{{ old('email') }}'>
                   @error('email')
-                  <span class="invalid-feedback" role='alert'> 
+                  <span class="invalid-feedback" role='alert'>
                     <strong>{{$message}}</strong>
                   </span>
                   @enderror
@@ -54,7 +54,7 @@
                 <label for="password">Contraseña</label>
                 <input type="password" class="form-control @error("password") is-invalid @enderror" name="password" id="password" >
                 @error('password')
-                <span class="invalid-feedback" role='alert'> 
+                <span class="invalid-feedback" role='alert'>
                   <strong>{{$message}}</strong>
                 </span>
                 @enderror
@@ -63,20 +63,20 @@
                   <label for="password-confirm">Confirmar contraseña</label>
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                 </div>
-              
+
                 <div class="form-group">
                   <label for="avatar">Subir avatar</label>
                   <input type="file" name="avatar" id="avatar">
                 </div>
-                
-              
+
+
                 <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="terminos" name="terminos">
                   <label class="form-check-label" for="terminos">Acepto terminos y condiciones</label>
                 </div>
 
               <div class="boton">
-                <button type="submit" class="btn btn_login">Registrarse</button>
+                <button id="enviar" type="submit" class="btn btn_login">Registrarse</button>
               </div>
             </div>
           </form>

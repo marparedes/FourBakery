@@ -49,7 +49,8 @@
     <link href="{{ asset('css/miPerfil.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vista-del-producto.css') }}" rel="stylesheet">
 
-
+    <!-- Js-->
+    <script src="{{ asset('js/validacionRegistro.js') }}"> </script>
 </head>
 <body>
     <div id="plantilla">

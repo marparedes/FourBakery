@@ -1,17 +1,23 @@
 window.onload = function(){
 
   //validaciones de registro
-  var formulario = document.querySelector('form');
+  document.getElementById('enviar').addEventListener("click", e => {
+    e.preventDefault();
+    var formulario = document.getElementById('formulario');
+    console.log({formulario});
 
-  var registrarse = document.querySelector('.btn');
-  console.log(registrarse);
 
-  for(var elemento of formulario.elements){
-    if(elemento.name == 'nombre' || elemento.name == 'password'){
-      if(elemento.value == ""){
-        console.log('el campo esta vacio')
-      }
-    }
-  }
+       for(var elemento of formulario.elements){
+        if(elemento.name == 'nombre' || elemento.name == 'password'){
+         if(elemento.value == ""){
+
+        /*console.log('el campo esta vacio')*/
+         }
+
+       }
+     }
+  });
+
+
 
 }
