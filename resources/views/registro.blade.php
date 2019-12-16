@@ -14,14 +14,6 @@
             <h3>¡Únete para hacer tus pedidos!</h3>
           </div>
 
-          <?php
-                //var_dump($_POST);
-                // echo $errorTel;
-                // echo $errorEmail;
-                // echo $errorPassword;
-                // echo $errorConfirmarPass;
-                 // echo $terminos;
-                 ?>
           <form id="formulario" method='POST' action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
             <p id="titulo-form"><b>Ingresa tus Datos</b></p>
@@ -35,11 +27,6 @@
                 </span>
                 @enderror
               </div>
-              <!-- <div class="form-group">
-                  <label for="tel">Telefono</label>
-                  <input type="tel" class="form-control" name="telefono" value='<?php// echo $telefono; ?>'>
-                </div>
-                -->
               <div class=form-group>
                 <label for="email">Email</label>
                 <input id="email" type="email" class="form-control @error("email") is-invalid @enderror" name="email" aria-describedby="emailHelp"
@@ -71,7 +58,7 @@
 
 
                 <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input" id="terminos" name="terminos">
+                  <input type="checkbox" class="form-check-input" id="terminos" name="terminos" required>
                   <label class="form-check-label" for="terminos">Acepto terminos y condiciones</label>
                 </div>
 

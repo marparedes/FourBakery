@@ -15,7 +15,7 @@ Route::get('/', function () {
     return redirect('/index');
 });
 
-Route::get('/index', 'HomeController@index');
+//Route::get('/index', 'HomeController@index');
 
 Route::get('/faq', function() {
     return view('/faq');
@@ -41,6 +41,12 @@ Route::get('/registro', 'Auth\RegisterController@showRegistrationForm');
 Route::get('/productos', 'ProductoController@mostrarProductos');
 
 Route::get('/productos/{id}', 'ProductoController@buscarPorId');
+
+Route::get('/modificarProducto/id={id}', 'ProductoController@productoId');
+
+Route::get('/agregarProducto', function(){
+  return view('agregarProducto');
+});
 
 Auth::routes();
 

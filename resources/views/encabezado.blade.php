@@ -30,26 +30,30 @@
           </li>
           <li class='nav-item menuPrincipal usuario'>
             <button class="btn" type="button" name="button" data-toggle="dropdown">
-              <span class='fa fa-user-circle' width="6" height="6"></span>
-              @if(Auth::check())
-            <img src="/storage/{{Auth::user()->avatar}}">
+              @if(Auth::check() && Auth::user()->avatar != "")
+              <img src="/storage/{{Auth::user()->avatar}}">
               <p>{{Auth::user()->name}}</p>
+              @elseif(Auth::check() && Auth::user()->avatar == "")
+              <img src="/img/imagenPorDefecto.png">
+              <p>{{Auth::user()->name}}</p>
+              @else
+              <span class='fa fa-user-circle' width="6" height="6"></span>
               @endif
             </button>
-            @if (Auth::check()) 
-              <ul class="dropdown-menu" id='dropdown-ul'>
-                  <li id="dropdown-login"><a href="{{ route('logout') }}" onclick="event.preventDefault();
+            @if (Auth::check())
+            <ul class="dropdown-menu" id='dropdown-ul'>
+              <li id="dropdown-login"><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">Cerrar Sesión</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      @csrf
-                    </form>
-                  </li>
-                </ul>
-             @else
-              <ul class="dropdown-menu" id='dropdown-ul'>
-                  <li id="dropdown-login"><a href="{{url("login")}}">Inicia Sesión</a></li>
-                  <li id="dropdown-login"><a href="{{url("registro")}}">Registrate</a></li>
-                </ul>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </li>
+            </ul>
+            @else
+            <ul class="dropdown-menu" id='dropdown-ul'>
+              <li id="dropdown-login"><a href="{{url("login")}}">Inicia Sesión</a></li>
+              <li id="dropdown-login"><a href="{{url("registro")}}">Registrate</a></li>
+            </ul>
             @endif
           </li>
         </ul>

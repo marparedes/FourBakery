@@ -9,7 +9,7 @@
 
     <section id="titulo1">
       <h1 name="productos">Nuestra Especialidad</h1>
-      <!--<a class="botonAgregar" href="agregarProducto.php?producto=">Agregar Producto</a> -->
+      <a class="botonAgregar" href="/agregarProducto">Agregar Producto</a>
     </section>
 
     <section>
@@ -22,7 +22,7 @@
               <figcaption class="nombreArticulo"><?php echo $producto['nombre']?></figcaption>
             </figure>
             <a class="BotonElim" href="index.php?producto=<?php echo $producto['id']?>&eliminar=true">Eliminar</a>
-            <a class="BotonModif" href="modificarProducto.php?producto=<?php echo $producto['id']?>">Modificar</a>
+            <a class="BotonModif" href="modificarProducto/id=<?php echo $producto['id']?>">Modificar</a>
             <a class="botoncomprar" href="productos/<?php echo $producto['id']?>">Comprar</a>
           </article>
         <?php } ?>

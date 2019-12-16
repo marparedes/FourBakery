@@ -9,7 +9,7 @@ class ProductoController extends Controller
 {
     public function mostrarProductos(){
 
-      $productos = Producto::all();
+      $productos = Producto::paginate(9);
 
       return view('productos', compact('productos'));
     }
@@ -22,5 +22,10 @@ class ProductoController extends Controller
     public function listadoIndex(){
       $productos = Producto::where('id','<=','13')->get();
       return view('index', compact('productos'));
+    }
+
+    public function productoId($id){
+      $prod = Producto::find($id);
+      return view('modificarProducto', compact('prod'));
     }
 }

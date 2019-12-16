@@ -4,7 +4,7 @@
     <div class="col-12 col-md-6 centrado">
       <div class="">
         <div class="divLogo">
-          <img src="img/logoblanco.png" alt="" width="100%">
+          <img src="/img/logoblanco.png" alt="" width="100%">
         </div>
         <p>Seguinos :
           <a href="https://facebook.com"> <ion-icon name="logo-facebook" size="large class="redes_icons"" ></ion-icon> </a>
