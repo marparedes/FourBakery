@@ -15,7 +15,7 @@ Route::get('/', function () {
     return redirect('/index');
 });
 
-Route::get('/index', 'HomeController@index');
+//Route::get('/index', 'HomeController@index');
 
 Route::get('/faq', function() {
     return view('/faq');
