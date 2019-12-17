@@ -1,3 +1,4 @@
+/*
 window.onload = function(){
 
   //validaciones de registro
@@ -21,3 +22,4 @@ window.onload = function(){
 
 
 }
+*/

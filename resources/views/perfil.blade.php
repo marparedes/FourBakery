@@ -6,54 +6,33 @@
 
    <div class="container">
      <div class="row contenedor">
-     @guest
-     <p>Debes estar logeado para acceder al perfil.</p>
-     @else
-     <div class="col-lg-3">
-     </div>
+       @guest
+       <p>Debes estar logueado para acceder al perfil.</p>
+       @else
+        <div class="col-lg-12 margin-tb">
+          <h2>Mi perfil</h2>
+        </div>
 
-       <div class="col-12 col-lg-6">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Nombre: </strong> {{Auth::user()->name}}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Correo-e: </strong> {{Auth::user()->email}}
+                        </div>
+                    </div>
+                </div>
 
-         <div class="tituloPrincipal">
-           <h1>Mi Perfil</h1>
-           <h3>¡Mi cuenta!</h3>
-         </div>
-
-            <form id="formulario" method="post" action='miPerfil.php'>
-              <p id="titulo-form"><b>Información Personal</b></p>
-              <div class= "user_info">
-               <div class="form-group" >
-                 <p id="ImagenPerfil"><b>Imagen de Perfil</b><img src="/storage/{{Auth::user()->avatar}}"></p>
-
-                 <label for="nombre">Nombre</label>
-                 <input type="text" class="form-control" name="nombre" value=<?php echo Auth::user()->name ?> >
-               </div>
-               <div class="form-group">
-                 <label for="tel">Telefono</label>
-                 <input type="tel" class="form-control" name="telefono" value={{ auth::user()->name }} >
-               </div>
-               <div class="form-group">
-                 <label for="email">Email</label>
-                 <input type="email" class="form-control" name='email' value={{ auth::user()->email }} >
-               </div>
-
-               <div class="boton">
-                 <button type="text" class="btn btn_login" >Editar Perfil</button>
-               </div>
-
+                <form id="formulario" method="post" action='{{ route('perfil.editar') }}'>
+                  @csrf
+                    <div class="boton">
+                        <button type="submit" class="btn btn_login" >Modificar perfil</button>
+                    </div>
+                </form>
               </div>
-            </form>
-
-       </div>
-
-       <div class="col-lg-3">
-       </div>
-
-     </div>
-
-   </div>
-   @endguest
-
- </main>
-
-@endsection
+            </div>
+            @endguest
+            @endsection
