@@ -48,6 +48,12 @@ Route::get('/agregarProducto', function(){
   return view('agregarProducto');
 });
 
+Route::post('/agregarProducto', 'ProductoController@agregar');
+
+Route::post('/eliminarProducto','ProductoController@eliminar');
+
+Route::post('/modificarProducto/id={id}', 'ProductoController@editar');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -21,11 +21,22 @@
               <img src="<?=$producto['img']?>" />
               <figcaption class="nombreArticulo"><?php echo $producto['nombre']?></figcaption>
             </figure>
-            <a class="BotonElim" href="index.php?producto=<?php echo $producto['id']?>&eliminar=true">Eliminar</a>
-            <a class="BotonModif" href="modificarProducto/id=<?php echo $producto['id']?>">Modificar</a>
+            <form class="" action="/eliminarProducto" method="post" style="box-shadow: none">
+              {{csrf_field()}}
+              <input type="hidden" name="id" value="{{$producto->id}}">
+              <input type="submit" name="" value="Borrar">
+            </form>
+            <a class="BotonModif" href="modificarProducto/id=<?php echo $producto['id']?>" style="margin-top: 5px;">Modificar</a>
             <a class="botoncomprar" href="productos/<?php echo $producto['id']?>">Comprar</a>
           </article>
         <?php } ?>
+
+      </div>
+
+      <div class="" style="padding: 0;text-align: center; margin: 40px; padding-bottom: 20px">
+        <a href="/productos" style="text-decoration: none;">
+          <button type="button" class="btn btn-light btn-lg" style=" color: gray"> Ver Más </button>
+        </a>
       </div>
     </section>
   </main>
