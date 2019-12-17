@@ -19,7 +19,7 @@
            <h3>Modificar datos</h3>
          </div>
 
-            <form id="formulario" method="post" action='perfil.php'>
+            <form id="formulario" method="patch" action='{{ route('perfil.actualizar') }}'>
               <p id="titulo-form"><b>Información personal</b></p>
               <div class= "user_info">
                <div class="form-group" >
