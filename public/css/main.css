@@ -19,6 +19,9 @@ main{
   width: 100px;
 }
 
+#imagenLogueo{
+  width: 65%;
+}
 
 #dropdown-login{
   margin-right: 0px;
@@ -50,7 +53,12 @@ main{
 
  .menuPrincipal.usuario.show .dropdown-menu.show{
    position: absolute;
-   top:55px;
+   top:63px;
+   left: -65px;
+ }
+
+ #dropdown-ul-logout{
+   top:62px;
    left: -65px;
  }
 

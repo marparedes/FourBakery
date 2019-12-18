@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return redirect('/index');
 });
@@ -29,6 +31,10 @@ Route::get('/contacto', function() {
 Route::get('/perfil', function() {
     return view('/perfil');
 });
+
+Route::get('/perfil/editar',['as'=> 'perfil.editar', 'uses' => 'PerfilController@edit']);
+Route::patch('/perfil/actualizar',['as'=> 'perfil.actualizar', 'uses' => 'PerfilController@update']);
+
 
 Route::get('/index','ProductoController@listadoIndex');
 

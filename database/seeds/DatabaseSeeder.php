@@ -13,10 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+
+      $this->call(RolesAndPermissions::class);
+      $this->call(UserTableSeeder ::class);
+
+
       DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
       DB::table('productos')->truncate();
       DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
       //$this->call(SeederProductos::class);
+
+
       $tortas = DB::table('categorias')->where('nombreCateg','Tortas')->value('id');
       $tartas = DB::table('categorias')->where('nombreCateg','Tartas')->value('id');
       $macarons = DB::table('categorias')->where('nombreCateg','Macarons')->value('id');
