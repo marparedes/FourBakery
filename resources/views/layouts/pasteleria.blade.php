@@ -17,9 +17,9 @@
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    </script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
@@ -42,15 +42,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/estilo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/preguntasFrecuentes.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/carrito.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/contacto.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/login_registro.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/miPerfil.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/vista-del-producto.css') }}" rel="stylesheet">
 
     <!-- Js-->
-    <script src="{{ asset('js/validacionRegistro.js') }}"> </script>
+
+    
+    @yield('estilos/scripts')
 </head>
 <body>
     <div id="plantilla">

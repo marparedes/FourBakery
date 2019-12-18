@@ -1,30 +1,18 @@
-<<<<<<< HEAD
-/*window.onload = function(){
-=======
-/*
-window.onload = function(){
->>>>>>> 21fcf20ff19a0d5192446a1ba43cbcb30960fad9
+/*window.onload = function () {
 
-  //validaciones de registro
-  document.getElementById('enviar').addEventListener("click", e => {
-    e.preventDefault();
-   //seleccion del formulario
-    var formulario = document.getElementById('formulario');
-    console.log({formulario});
+  var formulario = document.getElementById('formulario');
+  var boton = document.getElementById("enviar");
 
+  boton.addEventListener("click", e => {
+    if (formulario.email.value == 0) {
+      e.preventDefault();
+      var para = document.createElement("P");
+      para.innerText = "Debes ingresar un email";
+      formulario.appendChild(para);
+      
+    }
 
-       for(var elemento of formulario.elements){
-        if(elemento.name == 'nombre' || elemento.name == 'password'){
-         if(elemento.value == ""){
-
-        /*console.log('el campo esta vacio')*/
-         }
-
-       }
-     }
   });
-
-
 
 }
 */

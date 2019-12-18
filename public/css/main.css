@@ -1,5 +1,6 @@
 body{
   background-color: rgba(225,225,225,0.4) !important;
+  padding-top: 100px
 }
 
 main{
@@ -19,8 +20,11 @@ main{
   width: 100px;
 }
 
-#imagenLogueo{
-  width: 65%;
+.imagenRedonda{
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
 }
 
 #dropdown-login{
@@ -73,31 +77,10 @@ main{
     color: #a5a6a7;
 }
 
-/*
-.menuPrincipal:hover {
-    text-decoration:underline;
-}
-*/
-
 #logo {
     float: left;
     margin: 5PX 10px;
 }
-
-
-/*estilo del Body*/
-
-/*.carousel-inner img {
-
-   width: 100%;
-   max-height: 500px;
-}
-
-.carousel-inner{
-height: 500px;
-
-}
-*/
 
 .imagenPrincipal{
   width: 100%;

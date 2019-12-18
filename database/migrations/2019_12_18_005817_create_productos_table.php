@@ -11,8 +11,13 @@ class CreateProductosTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
+
+        Schema::create('categorias', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombreCateg')->unique();
+        });
+
         Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre')->unique();
@@ -22,7 +27,7 @@ class CreateProductosTable extends Migration
             $table->decimal('precio', 6, 2);
             $table->string('img');
 
-            $table->unsignedInteger('categoria_id');
+            $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
 
             $table->timestamps();
@@ -37,5 +42,6 @@ class CreateProductosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('productos');
+        Schema::dropIfExists('categorias');
     }
 }

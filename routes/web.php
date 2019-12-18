@@ -11,13 +11,11 @@
 |
 */
 
-
-
 Route::get('/', function () {
     return redirect('/index');
 });
 
-//Route::get('/index', 'HomeController@index');
+Route::get('/index','ProductoController@listadoIndex');
 
 Route::get('/faq', function() {
     return view('/faq');
@@ -27,39 +25,58 @@ Route::get('/contacto', function() {
     return view('/contacto');
 });
 
-
-Route::get('/perfil', function() {
-    return view('/perfil');
-});
-
-Route::get('/perfil/editar',['as'=> 'perfil.editar', 'uses' => 'PerfilController@edit']);
-Route::patch('/perfil/actualizar',['as'=> 'perfil.actualizar', 'uses' => 'PerfilController@update']);
-
-
-Route::get('/index','ProductoController@listadoIndex');
-
+/* Rutas del perfil */
 Route::get('/registro', 'Auth\RegisterController@showRegistrationForm');
 
-//Route::post('/registro', 'Auth\RegisterController@agregarUsuario');
+Route::get('/perfil', function() {
+    return view('perfil');
+})->middleware('auth');
 
-//Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::get('/perfil/editar', function() {
+    return view('editarPerfil');
+});
 
+Route::post('/perfil/editar', 'PerfilController@actualizarPerfil');
+
+/* Rutas de productos */
 Route::get('/productos', 'ProductoController@mostrarProductos');
 
 Route::get('/productos/{id}', 'ProductoController@buscarPorId');
 
 Route::get('/modificarProducto/id={id}', 'ProductoController@productoId');
 
+Route::post('/modificarProducto/id={id}', 'ProductoController@editar');
+
 Route::get('/agregarProducto', function(){
   return view('agregarProducto');
-});
+})->middleware('auth');
 
 Route::post('/agregarProducto', 'ProductoController@agregar');
 
 Route::post('/eliminarProducto','ProductoController@eliminar');
 
-Route::post('/modificarProducto/id={id}', 'ProductoController@editar');
+/* Rutas del carrito */
+Route::get('/carrito', function() {
+    return view('/vista-carrito');
+});
+
+Route::post('/agregar-al-carrito','ProductoController@agregarCarrito');
+
+Route::get('/eliminar/{id}', function($id) {
+    Cart::remove($id);
+    return redirect('/carrito');
+});
+
+Route::get('/vaciar', function() {
+    Cart::destroy();
+    return redirect('/carrito');
+});
+
+Route::get('/compra', function() {
+    Cart::destroy();
+    return view('/compra');
+})->middleware('auth');
+
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');

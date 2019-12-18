@@ -4,43 +4,27 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use App\User;
 
 class PerfilController extends Controller
 
 {
-/*    public function perfilUsuario(){
-      $usuario = Auth::user();
-      return view('miPerfil')->with('user', $usuario);
-    }
-*/
-/*
-    public function edit($id){
-       $usuario = User::find(Auth::user()->id);
-       if(empty($usuario)){
-          Flash::error('mensaje error');
-          return redirect()->back();
-       }
-       return view('perfil.editar')->with('user', $usuario);
-    }
-*/
-public function edit(){
+   public function actualizarPerfil(Request $request){
        $usuario = User::find(Auth::User()->id);
-       if(empty($usuario)){
-          Flash::error('mensaje error');
-          return redirect()->back();
-       }
-       return view('perfil.editar')->with('usuario', $usuario);
-    }
 
-   public function update(Request $request){
-       $usuario = User::find(Auth::User()->id);
-       if(empty($usuario)){
-          Flash::error('mensaje error');
-          return redirect()->back();
+       $usuario->name = $request['name'];
+       $usuario->email = $request['email'];
+
+       if(isset($request['avatar'])) {
+          $imagen = $request['avatar']->store('public');
+          $imagen = basename($imagen);
+
+          $usuario->avatar = $imagen;
        }
-       $usuario->fill($request->all());
+       
        $usuario->save();
-       Flash::success('Perfil actualizado con éxito.');
-       return redirect(route('index'));
+       return redirect("/index");
     }
   }
+
+

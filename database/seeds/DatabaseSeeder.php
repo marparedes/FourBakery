@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-
       $this->call(RolesAndPermissions::class);
       $this->call(UserTableSeeder ::class);
 
@@ -22,8 +21,23 @@ class DatabaseSeeder extends Seeder
       DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
       DB::table('productos')->truncate();
       DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
-      //$this->call(SeederProductos::class);
 
+      // Llenamos la tabla de categorias
+      DB::table('categorias')->insert([
+        'nombreCateg' => 'Tortas'
+      ]);
+      DB::table('categorias')->insert([
+        'nombreCateg' => 'Tartas'
+      ]);
+      DB::table('categorias')->insert([
+        'nombreCateg' => 'Macarons'
+      ]);
+      DB::table('categorias')->insert([
+        'nombreCateg' => 'Cookies'
+      ]);
+      DB::table('categorias')->insert([
+        'nombreCateg' => 'Otros'
+      ]);
 
       $tortas = DB::table('categorias')->where('nombreCateg','Tortas')->value('id');
       $tartas = DB::table('categorias')->where('nombreCateg','Tartas')->value('id');
@@ -31,7 +45,7 @@ class DatabaseSeeder extends Seeder
       $cookies = DB::table('categorias')->where('nombreCateg','Cookies')->value('id');
       $otros = DB::table('categorias')->where('nombreCateg','Otros')->value('id');
 
-
+      // Llenamos la tabla de productos
       DB::table('productos')->insert([
         'nombre' => 'Torta Macarrons',
         'descripcion' => 'Torta de vainilla decorada con chocolate y macarons ',
@@ -238,16 +252,6 @@ class DatabaseSeeder extends Seeder
         'stock' => 7,
         'precio' => 400,
         'img' => '/img/tortaBoda3.jpg',
-        'categoria_id' => $tortas
-      ]);
-
-      DB::table('productos')->insert([
-        'nombre' => 'Torta Celebracion',
-        'descripcion' => 'Torta simple de vainilla para celebrar distintas ocaciones',
-        'descuento' => 0,
-        'stock' => 10,
-        'precio' => 300,
-        'img' => '/img/tortaCelebracion.jpg',
         'categoria_id' => $tortas
       ]);
 

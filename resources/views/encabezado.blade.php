@@ -2,7 +2,7 @@
   <div class="encabezado">
     <img id="logo" src="/img/FourBakery.png" width="80px" alt="">
 
-    <nav class='navbar navbar-expand-md navbar-light light-blue lighten-4' id="menu">
+    <nav class='navbar navbar-fixed-top navbar-expand-md navbar-light light-blue lighten-4' id="menu">
 
       <div class="w-100 text-right">
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
@@ -28,21 +28,26 @@
           <li class="nav-item menuPrincipal">
             <a class="nav-link" href="{{url("contacto")}}">CONTACTO</a>
           </li>
+          <li class="nav-item menuPrincipal">
+            <a href="{{url("carrito")}}"><span class='fas fa-cart-arrow-down' width="6"
+                height="6"></span>{{Cart::content()->count()}}</a>
+          </li>
           <li class='nav-item menuPrincipal usuario'>
             <button class="btn" type="button" name="button" data-toggle="dropdown">
               @if(Auth::check() && Auth::user()->avatar != "")
-              <img src="/storage/{{Auth::user()->avatar}}">
+              <img class="imagenRedonda" src="/storage/{{Auth::user()->avatar}}">
               <p>{{Auth::user()->name}}</p>
               @elseif(Auth::check() && Auth::user()->avatar == "")
-              <img id= "imagenLogueo"src="/img/imagenPorDefecto.png">
+              <img class="imagenRedonda" src="/img/imagenPorDefecto.png">
               <p>{{Auth::user()->name}}</p>
               @else
               <span class='fa fa-user-circle' width="6" height="6"></span>
               @endif
             </button>
             @if (Auth::check())
-            <ul class="dropdown-menu" id='dropdown-ul-logout'>
-              <li id="dropdown-login"><a id="logout"href="{{ route('logout') }}" onclick="event.preventDefault();
+            <ul class="dropdown-menu" id='dropdown-ul'>
+              <li id="dropdown-login"><a href="{{url("perfil")}}">Mi Perfil</a></li>
+              <li id="dropdown-login"><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">Cerrar Sesión</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf

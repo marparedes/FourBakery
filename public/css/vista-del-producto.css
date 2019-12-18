@@ -1,7 +1,6 @@
 
 .contenedor1 img{
   width: 300px;
-  /*padding-top: 200px;  */
 
 }
 .botoncantidad{
@@ -30,16 +29,6 @@
 img{
   width: 100%;
 }
-
-/*.alineacion{
-  display:block;
-  margin:auto;
-  text-align: center
-}
-.alineacionTexto{
-  width: 200px;
-  margin-left: 1200px;
-}*/
 
 .contenedor1{
   display: flex;

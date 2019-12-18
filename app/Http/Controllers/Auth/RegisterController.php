@@ -99,16 +99,4 @@ class RegisterController extends Controller
     public function showRegistrationForm(){
       return view("registro");
     }
-
-    public function agregarUsuario(Request $form){
-        
-        $usuarioNuevo = new User();
-        $usuarioNuevo->name = $form['name'];
-        $usuarioNuevo->email = $form['email'];
-        $usuarioNuevo->password = Hash::make($form['password']);
-
-        $usuarioNuevo->save();
-
-        return view("index");
-      }
 }
