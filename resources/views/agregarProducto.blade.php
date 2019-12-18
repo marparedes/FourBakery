@@ -13,11 +13,16 @@
                 <h1>Agrega un Producto</h1>
               </div>
 
-              <form id="formulario" method='post'>
+              <form id="formulario" action="/agregarProducto" method='post'>
+                {{csrf_field()}}
                 <div class= "user_info">
                 <div class="form-group" >
                   <label for="nombre">Nombre</label>
                   <input type="text" class="form-control" name="nombre" value="">
+                </div>
+                <div class="form-group" >
+                  <label for="descripcion">Descripción</label>
+                  <input type="text" class="form-control" name="descripcion" value="">
                 </div>
                 <div class="form-group">
                   <label for="precio">Precio</label>

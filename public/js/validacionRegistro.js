@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 /*window.onload = function(){
+=======
+/*
+window.onload = function(){
+>>>>>>> 21fcf20ff19a0d5192446a1ba43cbcb30960fad9
 
   //validaciones de registro
   document.getElementById('enviar').addEventListener("click", e => {
@@ -22,3 +27,4 @@
 
 
 }
+*/

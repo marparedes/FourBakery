@@ -22,14 +22,23 @@
                 </figure>
 
               <form id="formulario" method='post'>
+                {{csrf_field()}}
                 <div class= "user_info">
                 <div class="form-group" >
                   <label for="nombre">Nombre</label>
-                  <input type="text" class="form-control" name="nombre" value="<?=$prod['nombre']?>">
+                  <input type="text" class="form-control" name="nombre" value="{{$prod->nombre}}">
+                </div>
+                <div class="form-group" >
+                  <label for="descripcion">Descripción</label>
+                  <input type="text" class="form-control" name="descripcion" value="{{$prod->descripcion}}">
                 </div>
                 <div class="form-group">
                   <label for="precio">Precio</label>
-                  <input type="text" class="form-control" name="precio" value="<?=$prod['precio']?>">
+                  <input type="number" class="form-control" name="precio" value="{{$prod->precio}}">
+                </div>
+                <div class="form-group">
+                  <label for="stock">Stock</label>
+                  <input type="text" class="form-control" name="stock" value="{{$prod->stock}}">
                 </div>
                 <div class="form-group">
                   <label for="ImagenNueva">Cambiar Imagen</label>
