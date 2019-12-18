@@ -60,7 +60,10 @@ class ProductoController extends Controller
       $producto->descripcion = $req['descripcion'];
       $producto->precio = $req['precio'];
       $producto->stock = $req['stock'];
-      //$producto->img = $req['ImagenNueva'];
+    //  $producto->img = $req->file('img')->store('/');
+      $imagen = $req->file('ImagenNueva');
+      $archivoImg = $imagen->getClientOriginalName();
+      $producto->img = "/img/" . $archivoImg;
       $producto->save();
 
       return redirect('/productos');

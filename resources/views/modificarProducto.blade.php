@@ -21,7 +21,7 @@
                   <figcaption class="nombreArticulo"><?php echo $prod['nombre'];?></figcaption>
                 </figure>
 
-              <form id="formulario" method='post'>
+              <form id="formulario" method='post' enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class= "user_info">
                 <div class="form-group" >
