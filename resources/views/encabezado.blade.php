@@ -1,6 +1,6 @@
 <header>
   <div class="encabezado">
-    <img id="logo" src="/img/FourBakery.png" width="80px" alt="">
+    <a href="{{url("index")}}"><img id="logo" src="/img/FourBakery.png" width="80px" alt=""></a> 
 
     <nav class='navbar navbar-fixed-top navbar-expand-md navbar-light light-blue lighten-4' id="menu">
 
