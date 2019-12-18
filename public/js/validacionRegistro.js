@@ -1,8 +1,9 @@
-window.onload = function(){
+/*window.onload = function(){
 
   //validaciones de registro
   document.getElementById('enviar').addEventListener("click", e => {
     e.preventDefault();
+   //seleccion del formulario
     var formulario = document.getElementById('formulario');
     console.log({formulario});
 

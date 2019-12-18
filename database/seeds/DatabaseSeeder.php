@@ -14,6 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+      $this->call(RolesAndPermissions::class);
+      $this->call(UserTableSeeder ::class);
+
+
       $tortas = DB::table('categorias')->where('nombreCateg','Tortas')->value('id');
       //dd($tortas);
       DB::table('productos')->insert([

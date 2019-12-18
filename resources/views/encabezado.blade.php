@@ -34,15 +34,15 @@
               <img src="/storage/{{Auth::user()->avatar}}">
               <p>{{Auth::user()->name}}</p>
               @elseif(Auth::check() && Auth::user()->avatar == "")
-              <img src="/img/imagenPorDefecto.png">
+              <img id= "imagenLogueo"src="/img/imagenPorDefecto.png">
               <p>{{Auth::user()->name}}</p>
               @else
               <span class='fa fa-user-circle' width="6" height="6"></span>
               @endif
             </button>
             @if (Auth::check())
-            <ul class="dropdown-menu" id='dropdown-ul'>
-              <li id="dropdown-login"><a href="{{ route('logout') }}" onclick="event.preventDefault();
+            <ul class="dropdown-menu" id='dropdown-ul-logout'>
+              <li id="dropdown-login"><a id="logout"href="{{ route('logout') }}" onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">Cerrar Sesión</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
